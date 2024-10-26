@@ -1,0 +1,25 @@
+cmake_minimum_required(VERSION 3.16)
+
+# Include the original CMakeLists.txt
+include("/C:/Users/sebas/OneDrive/Desktop/MPV Omega.worktrees/OmegaMVPEXPv1/CMakeLists.txt")
+
+# Test if MPVOmegaEXPV1 is set
+if (NOT DEFINED MPVOmegaEXPV1)
+    message(FATAL_ERROR "MPVOmegaEXPV1 is not set")
+endif()
+
+# Test if the resource location is set correctly
+if (NOT DEFINED RESOURCE_LOCATION)
+    message(FATAL_ERROR "RESOURCE_LOCATION is not set")
+elseif (NOT EXISTS ${RESOURCE_LOCATION} OR NOT IS_DIRECTORY ${RESOURCE_LOCATION})
+    message(FATAL_ERROR "RESOURCE_LOCATION is defined but does not point to a valid folder")
+endif()
+
+# Test if LIBROMFS_RESOURCE_LOCATION is set correctly
+if (NOT DEFINED LIBROMFS_RESOURCE_LOCATION)
+    message(FATAL_ERROR "LIBROMFS_RESOURCE_LOCATION is not set")
+elseif (NOT EXISTS ${LIBROMFS_RESOURCE_LOCATION} OR NOT IS_DIRECTORY ${LIBROMFS_RESOURCE_LOCATION})
+    message(FATAL_ERROR "LIBROMFS_RESOURCE_LOCATION is defined but does not point to a valid folder")
+endif()
+
+# Add any additional tests here
